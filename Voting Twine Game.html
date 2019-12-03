@@ -1,0 +1,39 @@
+<tw-storydata name="Voting Twine Game" startnode="1" creator="Twine" creator-version="2.2.1" ifid="E36E7BE0-230A-435B-8CB4-A840415BEA6F" zoom="1" format="SugarCube" format-version="2.21.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="701,310.5" size="100,100">/* Adds the specified number of hours. */
+&lt;&lt;widget &quot;addhours&quot;&gt;&gt;\
+&lt;&lt;run $gameDate.setUTCHours($gameDate.getUTCHours() + $args[0])&gt;&gt;\
+&lt;&lt;/widget&gt;&gt;
+
+/* Adds the specified number of days. */
+&lt;&lt;widget &quot;adddays&quot;&gt;&gt;\
+&lt;&lt;run $gameDate.setUTCHours($gameDate.getUTCHours() + $args[0] * 24)&gt;&gt;\
+&lt;&lt;/widget&gt;&gt;
+
+/* Prints the current time (12H). */
+&lt;&lt;widget &quot;time12h&quot;&gt;&gt;\
+    &lt;&lt;if $gameDate.getUTCHours() eq 0&gt;&gt;\12\
+        &lt;&lt;elseif $gameDate.getUTCHours() gt 12&gt;&gt;\
+        &lt;&lt;print $gameDate.getUTCHours() - 12&gt;&gt;\
+    &lt;&lt;else&gt;&gt;\
+        &lt;&lt;print $gameDate.getUTCHours()&gt;&gt;\
+    &lt;&lt;/if&gt;&gt;:\
+    &lt;&lt;if $gameDate.getUTCMinutes() lt 10&gt;&gt;0&lt;&lt;/if&gt;&gt;&lt;&lt;print $gameDate.getUTCMinutes()&gt;&gt; \
+    &lt;&lt;if $gameDate.getUTCHours() gte 12&gt;&gt;PM&lt;&lt;else&gt;&gt;AM&lt;&lt;/if&gt;&gt;\
+&lt;&lt;/widget&gt;&gt;
+
+/* Prints the current date and time (12H). */
+&lt;&lt;widget &quot;datetime&quot;&gt;&gt;&lt;&lt;date&gt;&gt; &lt;&lt;time12h&gt;&gt;&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="go to bed" tags="" position="173,301.5" size="100,100">&lt;&lt;if $gameTime == &quot;Day&quot;&gt;&gt;
+	&lt;&lt;set $gameTime = &quot;Night&quot;&gt;&gt;
+	&lt;&lt;set $gameDate =-1)&gt;&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;set $gameTime = &quot;Day&quot;&gt;&gt;
+	&lt;&lt;set $gameDate.setDate($gameDate.getDate() + 1)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;img
+src=&quot;https://cdn5.vectorstock.com/i/1000x1000/70/64/white-cloud-with-zzz-cartoon-icon-vector-7377064.jpg&quot; width=&quot;600&quot; height=&quot;650&quot;&gt;
+
+</tw-passagedata><tw-passagedata pid="3" name="daytwo" tags="" position="143,418.5" size="100,100">&lt;&lt;widget &quot;gameTime&quot;&gt;&gt;&lt;&lt;date&gt;&gt; &lt;&lt;time12h&gt;&gt;&lt;&lt;/widget&gt;&gt;
+
+display $gameDate</tw-passagedata><tw-passagedata pid="4" name="Untitled Passage 1" tags="" position="155,162.5" size="100,100">&lt;&lt;set $gameDate = new Date(Twenty Days)&gt;&gt;
+
+&lt;&lt;set $gameTime = &quot;Day&quot;&gt;&gt;</tw-passagedata></tw-storydata>
